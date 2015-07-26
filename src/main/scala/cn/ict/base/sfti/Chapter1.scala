@@ -12,5 +12,6 @@ package cn.ict.base.sfti
 
 object Chapter1 extends App {
   println("crazy"*3)
+  println(BigInt(2).pow(1024))
 
 }

@@ -9,9 +9,10 @@ package cn.ict.base.sfti
  */
 
 
-
+import BigInt.probablePrime
+import util.Random
 object Chapter1 extends App {
   println("crazy"*3)
   println(BigInt(2).pow(1024))
-
+  println(probablePrime(100,Random)) 
 }

@@ -4,9 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
+    <groupId>cn.ict.base</groupId>
     <artifactId>20221128-scala-base</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source.version>1.8</maven.compiler.source.version>
+        <maven.compiler.target.version>1.8</maven.compiler.target.version>
+        <encoding>UTF-8</encoding>
+        <scala.version>3.3.1.3</scala.version>
+        <scala.compat.version>3.2.14</scala.compat.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.scalatest</groupId>
@@ -27,7 +35,7 @@
                 <plugin>
                     <groupId>org.scalatest</groupId>
                     <artifactId>scalatest-maven-plugin</artifactId>
-                    <version>2.0.2</version>
+                    <version>3.2.2</version>
                     <configuration>
                         <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                         <junitxml>.</junitxml>

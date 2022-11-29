@@ -4,7 +4,7 @@ package cn.ict.base.search
  * @author sniper
  * @date 29 Nov, 2022 
  */
-class BinarySearch {
+class BinarySearch(nums: Array[Int], target: Int) {
 
     def search(nums: Array[Int], target: Int): Int = {
         var lo = 0

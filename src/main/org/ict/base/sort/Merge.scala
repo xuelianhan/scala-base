@@ -1,4 +1,4 @@
-package cn.ict.base.sort
+package org.ict.base.sort
 
 import scala.annotation.tailrec
 

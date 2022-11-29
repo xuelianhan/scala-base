@@ -1,9 +1,9 @@
-package cn.ict.base
+package org.ict.base.sort
 
 /**
  * @author sniper
  * @date 28 Nov, 2022 
  */
-package object hash {
+class MergeSuite  {
 
 }

@@ -1,9 +1,9 @@
-package cn.ict.base
+package org.ict.base
 
 /**
  * @author sniper
  * @date 28 Nov, 2022 
  */
-package object regex {
+package object search {
 
 }

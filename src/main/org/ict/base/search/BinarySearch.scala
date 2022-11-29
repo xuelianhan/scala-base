@@ -1,4 +1,4 @@
-package cn.ict.base.search
+package org.ict.base.search
 
 /**
  * @author sniper

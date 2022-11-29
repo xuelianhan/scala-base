@@ -1,4 +1,4 @@
-package cn.ict.base
+package org.ict.base
 
 import scala.annotation.tailrec
 

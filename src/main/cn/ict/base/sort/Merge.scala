@@ -1,9 +1,51 @@
 package cn.ict.base.sort
 
+import scala.annotation.tailrec
+
 /**
- * @author sniper
- * @date 28 Nov, 2022 
+ * Divide list in 2 then sort each half, recursively
+ *
+ * This is uses an example from Stack Overflow instead of translating from Algorthms
+ *
+ * @see [[http://stackoverflow.com/questions/2201472/merge-sort-from-programming-scala-causes-stack-overflow]]
+ * @see [[https://algs4.cs.princeton.edu/22mergesort/Merge.java.html]]
+ * @author Scala translation by Gary Struthers from Java by Robert Sedgewick and Kevin Wayne.
  */
 object Merge {
+
+    /**
+     * Recursive mergesort
+     *
+     * @tparam A generic element
+     * @param xs list of elements to sort
+     * @param ord implicit ordering of type A
+     * @return sorted list
+     */
+    def msort[A](xs: List[A])(implicit ord: Ordering[A]): List[A] = {
+
+        /** returns if a less than b */
+        def less(a: A, b: A): Boolean = ord.lt(a, b)
+
+        @tailrec /** prepend smaller element to accumulator then return it when one half is empty */
+        def merge(xs: List[A], ys: List[A], acc: List[A]): List[A] = (xs, ys) match {
+            case (Nil, _) => ys.reverse ::: acc
+            case (_, Nil) => xs.reverse ::: acc
+            case (x :: xs1, y :: ys1) =>
+              if (less(x, y)) merge(xs1, ys, x :: acc) else merge(xs, ys1, y :: acc)
+        }
+
+        val n = xs.length / 2
+        if (n == 0) xs else {
+            val (ys, zs) = xs splitAt n
+            merge (msort(ys), msort(zs), Nil).reverse
+        }
+    }
+
+    def main(args: Array[String]): Unit = {
+        println("test mergeSort start")
+        val strings = List("she sells seashells by the sea shore the shells she sells are surely seashells")
+        val sorted = Merge.msort[String](strings)
+        println(sorted)
+    }
 
 }

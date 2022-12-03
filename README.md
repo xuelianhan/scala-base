@@ -1,2 +1,2 @@
 # scala-base
-scala and spark testing project
+Algorithms implemented in Scala 

@@ -10,7 +10,7 @@ object MergeIntervals {
 
     def main(args: Array[String]): Unit = {
         val intervals = Array(Array(1, 4), Array(0, 4))
-        val mergedIntervals = mergeIntervals(intervals)
+        val mergedIntervals = mergeIntervalsV1(intervals)
         mergedIntervals.foreach(row => println(row.mkString(",")))
         //println(mergedIntervals)
     }
@@ -53,7 +53,7 @@ object MergeIntervals {
         val sortedIntervals = intervals.sortBy(_(0))
         var start = sortedIntervals(0)(0)
         var end = sortedIntervals(0)(1)
-        var ans = scala.collection.mutable.ArrayBuffer.empty[Array[Int]]
+        val ans = scala.collection.mutable.ArrayBuffer.empty[Array[Int]]
         for (i <- 1 until sortedIntervals.length) {
             val curStart = sortedIntervals(i)(0)
             val curEnd = sortedIntervals(i)(1)

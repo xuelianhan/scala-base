@@ -1,0 +1,6 @@
+A Trait is a concept pre-dominantly used in object-oriented programming,
+which can extend the functionality of a class using a set of methods.
+Traits are similar in spirit to interfaces in Java programming language.
+Unlike a class,
+Scala traits cannot be instantiated and have no arguments or parameters.
+Please see <a href="https://docs.scala-lang.org/tour/traits.html"></a>

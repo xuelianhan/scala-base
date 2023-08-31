@@ -35,11 +35,14 @@ object TwoSum {
 
     /**
      * @see <a href="https://www.baeldung.com/scala/printing-arrays"></a>
-     *
+     * The difference between val and var is that val makes a variable immutable — like final in Java,
+     * and var makes a variable mutable.
+     * Because val fields can't vary,
+     * some people refer to them as values rather than variables.
      * @param args
      */
     def main(args: Array[String]): Unit = {
-        var nums = Array(4, 2, 1)
+        val nums = Array(4, 2, 1)
         var target = 3
         var res = twoSum(nums, target);
         println(res.mkString(","))

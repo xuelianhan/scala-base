@@ -1,10 +1,12 @@
 package org.ict.base.array
 
 import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * @author sniper
- * @date 31 Aug 2023 
+ * @date 31 Aug 2023
+ * LC56, Medium, frequency=350
  */
 object MergeIntervals {
 
@@ -25,7 +27,7 @@ object MergeIntervals {
    */
     private def mergeIntervalsV2(intervals: Array[Array[Int]]): Array[Array[Int]] = {
         val sortedIntervals = intervals.sortBy(_(0))
-        val ans = scala.collection.mutable.ArrayBuffer.empty[Array[Int]]
+        val ans = ArrayBuffer.empty[Array[Int]]
         var prevInterval = sortedIntervals(0)
         for (interval <- sortedIntervals.drop(1)) {
             if (prevInterval(1) >= interval(0)) {
@@ -53,7 +55,7 @@ object MergeIntervals {
         val sortedIntervals = intervals.sortBy(_(0))
         var start = sortedIntervals(0)(0)
         var end = sortedIntervals(0)(1)
-        val ans = scala.collection.mutable.ArrayBuffer.empty[Array[Int]]
+        val ans = ArrayBuffer.empty[Array[Int]]
         for (i <- 1 until sortedIntervals.length) {
             val curStart = sortedIntervals(i)(0)
             val curEnd = sortedIntervals(i)(1)

@@ -1,0 +1,78 @@
+Difference between object and class in Scala
+see <a href="https://stackoverflow.com/questions/1755345/difference-between-object-and-class-in-scala"></a>
+
+688
+
+tl;dr
+class C defines a class, just as in Java or C++.
+object O creates a singleton object O as instance of some anonymous class; it can be used to hold static members that are not associated with instances of some class.
+object O extends T makes the object O an instance of trait T; you can then pass O anywhere, a T is expected.
+if there is a class C, then object C is the companion object of class C; note that the companion object is not automatically an instance of C.
+Also see Scala documentation for object and class.
+
+object as host of static members
+Most often, you need an object to hold methods and values/variables that shall be available without having to first instantiate an instance of some class. This use is closely related to static members in Java.
+
+object A {
+  def twice(i: Int): Int = 2*i
+}
+You can then call above method using A.twice(2).
+
+If twice were a member of some class A, then you would need to make an instance first:
+
+class A() {
+  def twice(i: Int): Int = 2 * i
+}
+
+val a = new A()
+a.twice(2)
+You can see how redundant this is, as twice does not require any instance-specific data.
+
+object as a special named instance
+You can also use the object itself as some special instance of a class or trait. When you do this, your object needs to extend some trait in order to become an instance of a subclass of it.
+
+Consider the following code:
+
+object A extends B with C {
+  ...
+}
+This declaration first declares an anonymous (inaccessible) class that extends both B and C, and instantiates a single instance of this class named A.
+
+This means A can be passed to functions expecting objects of type B or C, or B with C.
+
+Additional Features of object
+There also exist some special features of objects in Scala. I recommend to read the official documentation.
+
+def apply(...) enables the usual method name-less syntax of A(...)
+def unapply(...) allows to create custom pattern matching extractors
+if accompanying a class of the same name, the object assumes a special role when resolving implicit parameters
+
+A class is a definition, a description. It defines a type in terms of methods and composition of other types.
+
+An object is a singleton -- an instance of a class which is guaranteed to be unique. For every object in the code, an anonymous class is created, which inherits from whatever classes you declared object to implement. This class cannot be seen from Scala source code -- though you can get at it through reflection.
+
+There is a relationship between object and class. An object is said to be the companion-object of a class if they share the same name. When this happens, each has access to methods of private visibility in the other. These methods are not automatically imported, though. You either have to import them explicitly, or prefix them with the class/object name.
+
+For example:
+
+class X {
+  // class X can see private members of object X
+  // Prefix to call
+  def m(x: Int) = X.f(x)
+
+  // Import and use
+  import X._
+  def n(x: Int) = f(x)
+
+  private def o = 2
+}
+
+object X {
+  private def f(x: Int) = x * x
+
+  // object X can see private members of class X
+  def g(x: X) = {
+    import x._
+    x.o * o // fully specified and imported
+   }
+}

@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="20221128-scala-base" target="1.5" />
+      <module name="20221128-scala-base" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>

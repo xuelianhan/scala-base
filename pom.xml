@@ -13,6 +13,8 @@
         <encoding>UTF-8</encoding>
         <scala.version>3.3.0-RC1-bin-20221126-86e36e7-NIGHTLY</scala.version>
         <scala.compat.version>3.3.0-RC1-bin-20221126-86e36e7-NIGHTLY</scala.compat.version>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
     </properties>
 
     <dependencies>

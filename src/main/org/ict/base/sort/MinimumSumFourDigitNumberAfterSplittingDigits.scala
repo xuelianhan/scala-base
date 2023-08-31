@@ -35,10 +35,10 @@ package org.ict.base.sort
  */
 object MinimumSumFourDigitNumberAfterSplittingDigits {
 
-  def minimumSum(num: Int): Int = {
-    var arr = Array(num % 10, (num / 10) % 10, (num / 100) % 10, (num / 1000) % 10);
-    scala.util.Sorting.quickSort(arr);
-    (arr(0) + arr(1)) * 10 + arr(2) + arr(3);
-  }
+    def minimumSum(num: Int): Int = {
+      var arr = Array(num % 10, (num / 10) % 10, (num / 100) % 10, (num / 1000) % 10);
+      scala.util.Sorting.quickSort(arr);
+      (arr(0) + arr(1)) * 10 + arr(2) + arr(3);
+    }
 
 }

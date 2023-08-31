@@ -30,15 +30,15 @@ package org.ict.base.hash
  * LC1207
  */
 object UniqueNumberOfOccurrences {
-  def uniqueOccurrences(arr: Array[Int]): Boolean = {
-    val map = arr.groupBy(el => el).map(e => (e._1, e._2.length))
-    val set = map.values.toSet
-    map.size == set.size
-  }
+    def uniqueOccurrences(arr: Array[Int]): Boolean = {
+        val map = arr.groupBy(el => el).map(e => (e._1, e._2.length))
+        val set = map.values.toSet
+        map.size == set.size
+    }
 
-  def main(args: Array[String]): Unit = {
-    var arr1 = Array(1, 2, 2, 1, 1, 3)
-    uniqueOccurrences(arr1)
-  }
+    def main(args: Array[String]): Unit = {
+        var arr1 = Array(1, 2, 2, 1, 1, 3)
+        uniqueOccurrences(arr1)
+    }
 
 }

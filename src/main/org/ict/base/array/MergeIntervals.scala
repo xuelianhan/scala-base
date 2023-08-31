@@ -23,7 +23,7 @@ object MergeIntervals {
    * @param intervals
    * @return
    */
-    def mergeIntervalsV2(intervals: Array[Array[Int]]): Array[Array[Int]] = {
+    private def mergeIntervalsV2(intervals: Array[Array[Int]]): Array[Array[Int]] = {
         val sortedIntervals = intervals.sortBy(_(0))
         val ans = scala.collection.mutable.ArrayBuffer.empty[Array[Int]]
         var prevInterval = sortedIntervals(0)
@@ -49,7 +49,7 @@ object MergeIntervals {
      * @param intervals
      * @return
      */
-    def mergeIntervalsV1(intervals: Array[Array[Int]]): Array[Array[Int]] = {
+    private def mergeIntervalsV1(intervals: Array[Array[Int]]): Array[Array[Int]] = {
         val sortedIntervals = intervals.sortBy(_(0))
         var start = sortedIntervals(0)(0)
         var end = sortedIntervals(0)(1)
@@ -78,11 +78,11 @@ object MergeIntervals {
      * @param intervals
      * @return
      */
-    def mergeIntervals(intervals: Array[Array[Int]]): Array[Array[Int]] = {
+    private def mergeIntervals(intervals: Array[Array[Int]]): Array[Array[Int]] = {
           if (intervals == null || intervals.length == 0) {
               return null
           }
-          var sortedIntervals = intervals.sortBy(_(0))
+          val sortedIntervals = intervals.sortBy(_(0))
           val mergedIntervals = ListBuffer[Array[Int]]()
           var newInterval = sortedIntervals(0)
           mergedIntervals.append(newInterval)

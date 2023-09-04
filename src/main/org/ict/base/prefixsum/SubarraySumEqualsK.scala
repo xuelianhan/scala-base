@@ -6,6 +6,13 @@ package org.ict.base.prefixsum
  * LC560, Medium, frequency=185
  */
 object SubarraySumEqualsK {
+
+    /**
+     * Time Cost 741ms
+     * @param nums
+     * @param k
+     * @return
+     */
     def subarraySum(nums: Array[Int], k: Int): Int = {
         var res = 0
         var prefixSum = 0

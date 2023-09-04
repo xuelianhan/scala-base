@@ -27,7 +27,7 @@ object LRUCache {
      * Time Cost 1625ms
      * @param _capacity
      */
-    class LRUCache(_capacity: Int) {
+    private class LRUCache(_capacity: Int) {
         private val cache: mutable.Map[Int, Node] = mutable.Map()
         private val head: Node = new Node(0, 0)
         private val tail: Node = new Node(0, 0)

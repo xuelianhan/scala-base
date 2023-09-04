@@ -1,5 +1,6 @@
 package org.ict.base.prefixsum
 
+import scala.collection.mutable
 /**
  * @author sniper
  * @date 04 Sep 2023
@@ -16,7 +17,7 @@ object SubarraySumEqualsK {
     def subarraySum(nums: Array[Int], k: Int): Int = {
         var res = 0
         var prefixSum = 0
-        val freq = scala.collection.mutable.HashMap[Int, Int]()
+        val freq = mutable.HashMap[Int, Int]()
         freq.put(0, 1)
         for (num <- nums) {
             prefixSum += num

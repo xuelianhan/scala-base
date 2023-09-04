@@ -1,5 +1,7 @@
 package org.ict.base.tree
 
+import scala.collection.mutable
+
 /**
  * @author sniper
  * @date 04 Sep 2023
@@ -7,7 +9,52 @@ package org.ict.base.tree
  */
 object LowestCommonAncestorOfBT {
 
+
     /**
+     * Time Cost 614ms
+     * @param root
+     * @param p
+     * @param q
+     * @return
+     */
+    def lowestCommonAncestorV1(root: TreeNode, p: TreeNode, q: TreeNode): TreeNode = {
+        val parent = mutable.HashMap[TreeNode, TreeNode]()
+        val queue = mutable.Queue[TreeNode]()
+        parent.put(root, null)
+        queue.enqueue(root)
+
+        while (!parent.contains(p) || !parent.contains(q)) {
+            val size = queue.size
+            for (i <- 0 until size) {
+                val cur = queue.dequeue()
+                if (cur.left != null) {
+                  parent.put(cur.left, cur)
+                  queue.enqueue(cur.left)
+                }
+
+                if (cur.right != null) {
+                  parent.put(cur.right, cur)
+                  queue.enqueue(cur.right)
+                }
+            }
+        }
+
+        val ancestors = mutable.Set[TreeNode]()
+        var temp = p // Use a temporary variable to iterate
+        while (temp != null) {
+            ancestors.add(temp)
+            temp = parent(temp)
+        }
+
+        var qTemp = q // Use a temporary variable to iterate for q
+        while (!ancestors.contains(qTemp)) {
+            qTemp = parent(qTemp)
+        }
+        qTemp
+    }
+
+    /**
+     * Time Cost 579ms
      * The main difference between the Java code and the Scala code is the way that the null value is handled.
      * In Java, the null value is represented by the keyword null.
      * In Scala, the null value is represented by the null object.

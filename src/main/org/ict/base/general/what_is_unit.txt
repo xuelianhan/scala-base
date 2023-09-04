@@ -1,0 +1,4 @@
+The Unit is Scala is analogous to the void in Java,
+which is utilized as a return type of functions
+that is used with a function
+when the stated function does not return anything.
